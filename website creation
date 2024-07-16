@@ -1,0 +1,56 @@
+from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(__name__)
+
+# Simulated database
+car_designs = []
+
+@app.route('/')
+def home():
+    return render_template('index.html', designs=car_designs)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    if request.method == 'POST':
+        # Handle contact form submission
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
+        # Add contact form submission to database or send email
+        return redirect(url_for('contact'))
+    return render_template('contact.html')
+
+@app.route('/models/<model_name>')
+def model(model_name):
+    # Retrieve car design data from database or API
+    design_data = {'name': model_name, 'description': 'This is a car design'}
+    return render_template('model.html', design=design_data)
+
+@app.route('/design/<design_id>')
+def design(design_id):
+    # Retrieve car design data from database or API
+    design_data = {'id': design_id, 'name': 'Car Design 1', 'description': 'This is a car design'}
+    return render_template('design.html', design=design_data)
+
+@app.route('/submit', methods=['GET', 'POST'])
+def submit():
+    if request.method == 'POST':
+        # Handle car design submission
+        design_name = request.form['design_name']
+        design_description = request.form['design_description']
+        # Add car design submission to database or API
+        return redirect(url_for('submit'))
+    return render_template('submit.html')
+
+@app.route('/gallery/<model_name>')
+def gallery(model_name):
+    # Retrieve car design data from database or API
+    design_data = [{'id': 1, 'name': 'Car Design 1', 'description': 'This is a car design'}, {'id': 2, 'name': 'Car Design 2', 'description': 'This is another car design'}]
+    return render_template('gallery.html', designs=design_data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
