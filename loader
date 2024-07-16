@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="content">
+    <div class="content__container">
+      <p class="content_container_text">
+        Hello
+      </p>
+    
+      <ul class="content_container_list">
+        <li class="content_containerlist_item">hi users !</li>
+        <li class="content_containerlist_item"> hi universe !</li>
+        <li class="content_containerlist_item">hi coders !</li>
+        <li class="content_containerlist_item">thanks you for visiting</li>
+      </ul>
+    </div>
+  </div>
+</div
