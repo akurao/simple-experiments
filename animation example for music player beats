@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Example</title>
+  <style>
+    /* Add the CSS code here */
+   .container {
+      width: 300px;
+      height: 300px;
+      background-color: #f7f7f7;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+   .bar {
+      width: 20px;
+      height: 100px;
+      background-color: #ccc;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+   .bar.animate {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scaleY(0.5);
+      }
+      50% {
+        transform: scaleY(1);
+      }
+      100% {
+        transform: scaleY(0.5);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Add the HTML structure here -->
+  <div class="container">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <script>
+    // Add the JavaScript code here
+    const bars = document.querySelectorAll('.bar');
+    bars.forEach((bar) => {
+      bar.classList.add('animate');
+    });
+  </script>
+</body>
+</html>
